@@ -80,3 +80,13 @@ let backlog;
     //     ctx.fillText(text, w / 2, h / 2);
     // }
     // predict();
+
+    const predict = async () => {
+        const image = tf.browser.fromPixels(video).resizeBilinear([224, 224]).transpose([2, 0, 1]).reshape([1, 3, 224, 224]).asType('float32').div(255);
+        result = await model.predict(image);
+        console.log("Done");
+        const outReshape = (tf.transpose(result, [2, 3, 1, 0])).reshape([224, 224, 1]);
+        const outResize = tf.mul(tf.div(outReshape, tf.max(outReshape)), 255).asType('int32');
+        await tf.browser.toPixels(outResize, canvas);
+        setTimeout(predict, 0);
+    }
