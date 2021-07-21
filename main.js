@@ -10,9 +10,13 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 
 let backlog;
     let vidStream = null;
+    // navigator.getUserMedia({video: true}, successCallback, (err) => {
+    //     console.log("Error: ", err);
+    // });
     let cam = "environment" // "environment" or "user"
     const successCallback = (_vidStream) => {
         vidStream = _vidStream;
+        // console.log("successCallback");
         video.srcObject = _vidStream;
         video.play();
     }
