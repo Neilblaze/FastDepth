@@ -20,3 +20,16 @@ let backlog;
         video.srcObject = _vidStream;
         video.play();
     }
+
+    const change_cam = () => {
+        if (platform == "PC") {
+            console.log("Not supported!");
+        } else {
+            if (vidStream == null) return;
+            vidStream.getTracks().forEach(t => {
+                t.stop();
+            });
+            backlog = { video: { facingMode: { exact: cam }, width: { exact: w }, height: { exact: h } }, audio: false };
+            navigator.getUserMedia(backlog, successCallback, (e) => console.log(e));
+        }
+    }
