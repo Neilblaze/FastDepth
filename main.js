@@ -38,6 +38,8 @@ let backlog;
             vidStream.getTracks().forEach(t => {
                 t.stop();
             });
+            if (cam == "environment") cam = "user";
+            else cam = "environment";
             backlog = { video: { facingMode: { exact: cam }, width: { exact: w }, height: { exact: h } }, audio: false };
             navigator.getUserMedia(backlog, successCallback, (e) => console.log(e));
         }
