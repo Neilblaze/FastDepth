@@ -26,6 +26,15 @@ let backlog;
             console.log("Not supported!");
         } else {
             if (vidStream == null) return;
+            if (cam == "environment") {
+                cam = "user";
+                video.srcObject = vidStream;
+                video.play();
+            } else {
+                cam = "environment";
+                video.srcObject = null;
+                video.pause();
+            }
             vidStream.getTracks().forEach(t => {
                 t.stop();
             });
