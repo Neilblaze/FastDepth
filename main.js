@@ -4,7 +4,7 @@ const platform = (filter.indexOf(navigator.platform.toLowerCase()) > 0) ? "PC" :
 console.log(`Client platform : ${platform}`);
 
 //GUI
-const w = 250, h = 250;
+const w = 300, h = 300;
 const video = document.getElementById("video");
 [video.width, video.height] = [w, h];
 
