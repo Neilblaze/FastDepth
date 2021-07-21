@@ -1,3 +1,8 @@
+//(PC/MOBILE)
+const filter = "win16|win32|win64";
+const platform = (filter.indexOf(navigator.platform.toLowerCase()) > 0) ? "PC" : "MOBILE";
+console.log(`Client platform : ${platform}`);
+
 //GUI
 const w = 250, h = 250;
 const video = document.getElementById("video");
