@@ -8,3 +8,11 @@ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
 // window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 // window.RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription || window.webkitRTCSessionDescription;
 
+let backlog;
+    let vidStream = null;
+    let cam = "environment" // "environment" or "user"
+    const successCallback = (_vidStream) => {
+        vidStream = _vidStream;
+        video.srcObject = _vidStream;
+        video.play();
+    }
