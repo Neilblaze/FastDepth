@@ -49,3 +49,15 @@ let backlog;
             navigator.getUserMedia(backlog, successCallback, (e) => console.log(e));
         }
     }
+
+    const canvas = document.getElementById("canvas");
+    [canvas.width, canvas.height] = [w, h];
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "rgb(0, 255, 0)";
+    // ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = "rgb(0, 255, 0)";
+    // ctx.lineWidth = 1;
+    ctx.font = "15px Arial";
+    // ctx.textAlign = "center";
+    ctx.lineWidth = 3;
+    // ctx.strokeText("Test", w / 2, h / 2);
