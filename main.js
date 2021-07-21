@@ -71,3 +71,13 @@ let backlog;
         console.log("Loading Complete!");
     }
     load();
+
+    const predict = async () => {
+        const image = await tf.readImage(vidStream);
+        const result = await model.execute(image);
+        console.log(result);
+        const text = result.data.toString();
+        ctx.fillText(text, w / 2, h / 2);
+    }
+    predict();
+    
