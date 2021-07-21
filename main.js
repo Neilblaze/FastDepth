@@ -50,6 +50,13 @@ let backlog;
         }
     }
 
+    if (platform == "PC") {
+        backlog = { video: { width: { exact: w }, height: { exact: h } }, audio: false };
+    } else {
+        backlog = { video: { facingMode: { exact: cam }, width: { exact: w }, height: { exact: h } }, audio: false };
+    }
+    navigator.getUserMedia(backlog, successCallback, (e) => console.log(e));
+
     const canvas = document.getElementById("canvas");
     [canvas.width, canvas.height] = [w, h];
     const ctx = canvas.getContext("2d");
