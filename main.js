@@ -61,3 +61,13 @@ let backlog;
     // ctx.textAlign = "center";
     ctx.lineWidth = 3;
     // ctx.strokeText("Test", w / 2, h / 2);
+
+
+    let model;
+    const load = async () => {
+        const url = "./model.json";
+        // const url = "model.json";
+        model = await tf.loadGraphModel(url);
+        console.log("Loading Complete!");
+    }
+    load();
