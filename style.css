@@ -25,4 +25,9 @@ button:active {
 #video {
     z-index: -1;
     transform: scaleX(-1);
-  }
+}
+
+#canvas {
+    z-index: -1;
+    transform: scaleX(-1);
+}
