@@ -5,6 +5,7 @@ console.log(`Client platform : ${platform}`);
 
 //GUI
 const w = 300, h = 300;
+// const w = 450, h = 330;
 const video = document.getElementById("video");
 [video.width, video.height] = [w, h];
 
@@ -60,6 +61,7 @@ load();
 
 const predict = async () => {
     const image = tf.browser.fromPixels(video).resizeBilinear([224, 224]).transpose([2, 0, 1]).reshape([1, 3, 224, 224]).asType('float32').div(255);
+//     const image = tf.browser.fromPixels(video).resizeBilinear([200, 200]).transpose([2, 0, 1]).reshape([1, 3, 200, 200]).asType('float32').div(255);
     result = await model.predict(image);
     console.log("Done");
     const outReshape = (tf.transpose(result, [2, 3, 1, 0])).reshape([224, 224, 1]);
